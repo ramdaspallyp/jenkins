@@ -8,8 +8,8 @@ variable "secretkey" {
 
 provider "aws" {
   region     = "ap-south-1"
-  access_key = "var.accesskey"
-  secret_key = "var.secretkey"
+  access_key = "${var.accesskey}"
+  secret_key = "${var.secretkey}"
 }
 
 resource "aws_vpc" "vpc_mumbai" {
