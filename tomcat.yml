@@ -1,0 +1,25 @@
+---
+- hosts: all
+  become: yes
+  tasks: 
+  - name: ipdate packages
+    apt:
+     name: openjdk-8-jdk
+     state: present
+     update_cache: yes
+  - name: Install tomcat8
+    apt: 
+     name: tomcat8
+     state: present
+     update_cache: yes
+  - name: restart tomcat8
+    service: 
+     name: tomcat8
+     state: restarted
+  - name: gameof life 
+    get_url:
+     url: https://qt-s3-new-testing.s3-us-west-2.amazonaws.com/gameoflife.war
+     dest: /var/lib/tomcat8/webapps
+     
+   
+  
